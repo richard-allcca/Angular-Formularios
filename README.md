@@ -10,18 +10,20 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Temas tocados en este proyecto
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. Template driven
 
-## Running unit tests
+2. ViewChild
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+3. Two way databinding
 
-## Running end-to-end tests
+4. Formularios dinámicos
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+5. Checks, radios y switches
 
-## Further help
+6. Directivas personalizadas - Nota: este tema se cubre a profundidad después en una sección especializada
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+7. Manejo del formulario y validaciones
+
+8. Encapsular módulos y scope de los mismos
