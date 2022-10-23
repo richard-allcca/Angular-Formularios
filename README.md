@@ -27,3 +27,11 @@ Run `ng generate component component-name` to generate a new component. You can 
 7. Manejo del formulario y validaciones
 
 8. Encapsular módulos y scope de los mismos
+
+## Comandos CLI
+
+- Generar un
+
+   ```CLI
+      ng g m nameModule --routing
+   ```
