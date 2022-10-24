@@ -39,3 +39,5 @@ Run `ng generate component component-name` to generate a new component. You can 
 ## Notas - Curiosidades
 
 - RouterModule - debe estar importado en el modulo del componente donde usaras los `routerLink` (enlaces)
+
+- FormsModule - debe estar importado en el modulo del componenete donde usaras...

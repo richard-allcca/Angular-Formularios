@@ -11,6 +11,7 @@ export class BasicosComponent implements OnInit {
 
    @ViewChild('miFormulario') miFormulario!: NgForm;
 
+
    constructor() { }
 
    ngOnInit(): void {
@@ -27,6 +28,10 @@ export class BasicosComponent implements OnInit {
    precioValido(): boolean {
       return this.miFormulario?.controls['precios']?.invalid &&
          this.miFormulario?.controls['precios']?.touched
+   }
+
+   customDirective() {
+      return this.miFormulario?.controls['existencias']?.errors
    }
 
    guardar() {
