@@ -20,9 +20,14 @@
                name="producto"
                placeholder="Nombre del producto"
                required
+               minlength="3"
             />
 
-            <span class="form-text text-danger">Debe tener 3 letras</span>
+            <span class="form-text text-danger"
+            *ngIf="miFormulario.controls['producto']?.invalid && 
+            miFormulario.controls['producto']?.touched">
+               Debe tener 3 letras
+            </span>
          </div>
 
       </div>
@@ -41,6 +46,11 @@
                required
                min="0"
             />
+            <span class="form-text text-danger"
+                  *ngIf="miFormulario.controls['precios']?.invalid &&
+                  miFormulario.controls['precios']?.touched">
+               No puedes usar valores negativos
+            </span>
          </div>
       </div>
 
@@ -79,8 +89,17 @@
 <div class="row">
    <div class="col">
 
+      <!-- valida los input con require con true or false -->
       <span>Valid</span>
       <pre>{{miFormulario.valid}}</pre>
+
+      <!-- valida que no se haya cambiado ningun valor original del los input -->
+      <span>Pristine</span>
+      <pre>{{miFormulario.pristine}}</pre>
+
+      <!-- valida si el usuario a tocado el formulario -->
+      <span>Touched</span>
+      <pre>{{miFormulario.touched}}</pre>
 
       <span>Valid</span>
       <pre>{{miFormulario.value | json}}</pre>
