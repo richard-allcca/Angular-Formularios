@@ -34,9 +34,9 @@
 
          <div class="input-group">
             <input type="text"
-            class="form-control"
-            placeholder="Agregar Favorito"
-            >
+                   class="form-control"
+                   placeholder="Agregar Favorito"
+                  >
 
             <button class="btn btn-outline-primary"
                      type="button"
@@ -53,14 +53,25 @@
       <label class="col-sm-3 col-form-label">Favoritos</label>
       <div class="col-sm-9">
 
-         <input 
-            *ngFor="let juego of persona.favoritos; let i = index"
-            type="text"   
-            class="form-control mb-1"
-            [(ngModel)]="juego.nombre"
-            name="favorito_{{i}}"
-            required
-            >
+         <div class="input-group mb-1"
+               *ngFor="let juego of persona.favoritos; let i = index">
+
+            <input 
+                  class="form-control mb-1"
+                  type="text"   
+                  [(ngModel)]="juego.nombre"
+                  name="favorito_{{i}}"
+                  required
+                  >
+
+            <button 
+                  class="btn btn-outline-danger"
+                  type="button"
+                  (click)="eliminar(1)">
+               Eliminar
+            </button>
+            
+         </div>
 
       </div>
    </div>
