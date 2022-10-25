@@ -20,6 +20,8 @@ export class DinamicosComponent {
 
    @ViewChild('dinamicForm') dinamicForm!: NgForm
 
+   nuevoJuego: string = '';
+
    persona: Persona = {
       nombre: "Richard",
       favoritos: [
@@ -34,6 +36,16 @@ export class DinamicosComponent {
    nombreValido(): boolean {
       return this.dinamicForm?.controls['nombre']?.invalid
          && this.dinamicForm?.controls['nombre']?.touched;
+   }
+
+   agregarJuego() {
+      const nuevoFavorito: Favorito = {
+         id: this.persona.favoritos.length + 1,
+         nombre: this.nuevoJuego
+      }
+
+      this.persona.favoritos.push({ ...nuevoFavorito });
+      this.nuevoJuego = "";
    }
 
    guardar() {

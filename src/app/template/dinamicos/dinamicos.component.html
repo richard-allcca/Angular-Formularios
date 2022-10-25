@@ -36,10 +36,14 @@
             <input type="text"
                    class="form-control"
                    placeholder="Agregar Favorito"
+                   [(ngModel)]="nuevoJuego"
+                   name="nuevoJuego"
+                   (keyup.enter)="agregarJuego()"
                   >
 
             <button class="btn btn-outline-primary"
                      type="button"
+                     (click)="agregarJuego()"
                      >
                Agregar 
             </button>
@@ -47,6 +51,7 @@
 
       </div>
    </div>
+
 
    <!-- Lista de Juegos Favoritos -->
    <div class="mb-3 row">
@@ -67,7 +72,7 @@
             <button 
                   class="btn btn-outline-danger"
                   type="button"
-                  (click)="eliminar(1)">
+                  (click)="eliminar(1 )">
                Eliminar
             </button>
             
