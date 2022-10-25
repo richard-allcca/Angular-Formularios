@@ -1,16 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { NgForm, ValidationErrors } from '@angular/forms';
 
 @Component({
-  selector: 'app-switches',
-  templateUrl: './switches.component.html',
-  styles: [
-  ]
+   selector: 'app-switches',
+   templateUrl: './switches.component.html',
+   styles: [
+   ]
 })
-export class SwitchesComponent implements OnInit {
+export class SwitchesComponent {
 
-  constructor() { }
+   @ViewChild('switchesForm') switchesForm!: NgForm
 
-  ngOnInit(): void {
-  }
+   get errores(): ValidationErrors | null {
+      return this.switchesForm?.controls['terminos']?.errors;
+   }
+
+   constructor() { }
+
+   persona = {
+      genero: 'F',
+      notificaciones: true
+   }
+
+   terminosYcondiciones: boolean = false;
 
 }
