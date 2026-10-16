@@ -1,104 +1,94 @@
 <h2>Template: <small>Dinámicos</small></h2>
-<hr>
+<hr />
 
-<form (ngSubmit)="guardar()" 
-      autocomplete="off"  
-      #dinamicForm="ngForm">
+<form (ngSubmit)="guardar()" autocomplete="off" #dinamicForm="ngForm" class="height-minimo">
+  <!-- Nombre -->
+  <div class="mb-3 row">
+    <label class="col-sm-3 col-form-label">Nombre</label>
+    <div class="col-sm-9">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Nombre de la persona"
+        [ngModel]="persona.nombre"
+        name="nombre"
+        required
+      />
 
-      <!-- Nombre -->
-   <div class="mb-3 row">
-      <label class="col-sm-3 col-form-label">Nombre</label>
-      <div class="col-sm-9">
-         <input 
-               type="text" 
-               class="form-control"
-               placeholder="Nombre de la persona"
-               [ngModel]="persona.nombre"
-               name="nombre"
-               required
-               >
+      <span class="form-text text-danger" *ngIf="nombreValido()">
+        Este campo es obligatorio
+      </span>
+    </div>
+  </div>
 
-         <span class="form-text text-danger" 
-               *ngIf="nombreValido()"
-               >
-            Este campo es obligatorio
-         </span>
+  <!-- Agregar Favoritos -->
+  <div class="mb-3 row">
+    <label for="" class="col-sm-3 col-form-label">Agregar</label>
+    <div class="col-sm-9">
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Agregar Favorito"
+          [(ngModel)]="nuevoJuego"
+          name="nuevoJuego"
+          (keyup.enter)="agregarJuego()"
+        />
+
+        <button
+          class="btn btn-outline-primary"
+          type="button"
+          (click)="agregarJuego()"
+        >
+          Agregar
+        </button>
       </div>
-   </div>
+    </div>
+  </div>
 
+  <!-- Lista de Juegos Favoritos -->
+  <div class="mb-3 row">
+    <label class="col-sm-3 col-form-label">Favoritos</label>
+    <div class="col-sm-9">
+      <div
+        class="input-group mb-1"
+        *ngFor="let juego of persona.favoritos; let i = index"
+      >
+        <input
+          class="form-control mb-1"
+          type="text"
+          [(ngModel)]="juego.nombre"
+          name="favorito_{{ i }}"
+          required
+        />
 
-   <!-- Agregar Favoritos -->
-   <div class="mb-3 row">
-      <label for="" class="col-sm-3 col-form-label">Agregar</label>
-      <div class="col-sm-9">
-
-         <div class="input-group">
-            <input type="text"
-                   class="form-control"
-                   placeholder="Agregar Favorito"
-                   [(ngModel)]="nuevoJuego"
-                   name="nuevoJuego"
-                   (keyup.enter)="agregarJuego()"
-                  >
-
-            <button class="btn btn-outline-primary"
-                     type="button"
-                     (click)="agregarJuego()"
-                     >
-               Agregar 
-            </button>
-         </div>
-
+        <button
+          class="btn btn-outline-danger"
+          type="button"
+          (click)="eliminar(1)"
+        >
+          Eliminar
+        </button>
       </div>
-   </div>
+    </div>
+  </div>
 
-
-   <!-- Lista de Juegos Favoritos -->
-   <div class="mb-3 row">
-      <label class="col-sm-3 col-form-label">Favoritos</label>
-      <div class="col-sm-9">
-
-         <div class="input-group mb-1"
-               *ngFor="let juego of persona.favoritos; let i = index">
-
-            <input 
-                  class="form-control mb-1"
-                  type="text"   
-                  [(ngModel)]="juego.nombre"
-                  name="favorito_{{i}}"
-                  required
-                  >
-
-            <button 
-                  class="btn btn-outline-danger"
-                  type="button"
-                  (click)="eliminar(1 )">
-               Eliminar
-            </button>
-            
-         </div>
-
-      </div>
-   </div>
-
-   <!-- Boton de submit -->
-   <div class="row">
-      <div class="col-sm-12">
-
-         <button 
-               type="button" 
-               class="btn btn-primary float-end"
-               (click)="guardar()"
-               [disabled]="dinamicForm.invalid"
-               >
-            Guardar
-         </button>
-
-      </div>
-   </div>
-
+  <!-- Boton de submit -->
+  <div class="row">
+    <div class="col-sm-12">
+      <button
+        type="button"
+        class="btn btn-primary float-end"
+        (click)="guardar()"
+        [disabled]="dinamicForm.invalid"
+      >
+        Guardar
+      </button>
+    </div>
+  </div>
 </form>
 
+<hr />
 
 <!-- salida -->
-<pre>{{persona | json}}</pre>
+<pre>{{ persona | json }}</pre>

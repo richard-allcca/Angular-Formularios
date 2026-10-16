@@ -2,6 +2,15 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.7.
 
+1. Para correr en local si no tienes `cli` global
+
+    npm install -D @angular/cli
+    npm run start
+
+2. Correr el local si tienes la version 14.2.0 cli de angular
+
+    ng serve -o
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
@@ -14,7 +23,7 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 1. Template driven
 
-2. ViewChild
+2. ViewChild: en este caso para obtener el value del input
 
 3. Two way databinding
 

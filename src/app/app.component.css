@@ -1,0 +1,8 @@
+.sidemenu {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  border: 1px solid hsla(0, 7%, 74%, 0.562) ;
+  padding: 15px;
+}
+

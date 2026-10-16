@@ -1,113 +1,106 @@
 <h2>Template: Básicos</h2>
 <hr />
 
-<div class="row">
-   <div class="col">
-   
-    <form (ngSubmit)="guardar()" 
-            #miFormulario="ngForm"
-            autocomplete="off">
-
+<div class="row" [ngStyle]="{minHeight: '43%'}">
+  <div class="col">
+    <form (ngSubmit)="guardar()" #miFormulario="ngForm" autocomplete="off">
       <!-- STUB - Campo de productos -->
       <div class="mb-3 row">
-         <label class="col-sm-3 col-form-label" >Productos</label>
+        <label class="col-sm-3 col-form-label">Productos</label>
 
-         <div class="col-sm-9">
-            <input
-               type="text"
-               class="form-control"
-               ngModel
-               name="producto"
-               placeholder="Nombre del producto"
-               required
-               minlength="3"
-            />
+        <div class="col-sm-9">
+          <input
+            type="text"
+            class="form-control"
+            ngModel
+            name="producto"
+            placeholder="Nombre del producto"
+            required
+            minlength="3"
+          />
 
-            <span class="form-text text-danger"
-            *ngIf="nombreValido()">
-               Debe tener 3 letras
-            </span>
-         </div>
-
-      </div>
-      
-      <!-- STUB - Campo de precios -->
-      <div class="mb-3 row">
-         <label class="col-sm-3 col-form-label" >Precios</label>
-
-         <div class="col-sm-9">
-            <input
-               type="number"
-               class="form-control"
-               [ngModel]="initialForm.precio"
-               name="precios"
-               placeholder="Precio del producto"
-               required
-               min="0"
-            />
-            <span class="form-text text-danger"
-                  *ngIf="precioValido()">
-               Precio debe ser mayor a 0
-            </span>
-         </div>
+          <span class="form-text text-danger" *ngIf="nombreValido()">
+            Debe tener 3 letras
+          </span>
+        </div>
       </div>
 
       <!-- STUB - Campo de precios -->
       <div class="mb-3 row">
-         <label class="col-sm-3 col-form-label" >Existencias</label>
+        <label class="col-sm-3 col-form-label">Precios</label>
 
-         <div class="col-sm-9">
-            <input
-               type="number"
-               class="form-control"
-               [ngModel]="initialForm.existencia"
-               name="existencias"
-               customMin
-               [minimo]="0"
-               placeholder="Existencias del producto"
-               required
-            />
-         </div>
+        <div class="col-sm-9">
+          <input
+            type="number"
+            class="form-control"
+            [ngModel]="initialForm.precio"
+            name="precios"
+            placeholder="Precio del producto"
+            required
+            min="0"
+          />
+          <span class="form-text text-danger" *ngIf="precioValido()">
+            Precio debe ser mayor a 0
+          </span>
+        </div>
+      </div>
+
+      <!-- STUB - Campo de precios -->
+      <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Existencias</label>
+
+        <div class="col-sm-9">
+          <input
+            type="number"
+            class="form-control"
+            [ngModel]="initialForm.existencia"
+            name="existencias"
+            customMin
+            [minimo]="0"
+            placeholder="Existencias del producto"
+            required
+          />
+        </div>
       </div>
 
       <!-- STUB - Boton -->
       <div class="row">
-         <div class="col">
-            <button type="submit" 
+        <div class="col">
+          <button
+            type="submit"
             [disabled]="miFormulario.invalid"
-                  class="btn btn-primary float-end">
-               Guardar
-            </button>
-         </div>
+            class="btn btn-primary float-end"
+          >
+            Guardar
+          </button>
+        </div>
       </div>
-      
     </form>
-
   </div>
 </div>
 
+<hr>
 
-<!-- REVIEW - vista previa de valores del imput-->
+<!-- SECTION - vista previa de valores del imput-->
+
 <div class="row">
-   <div class="col">
+  <div class="col">
+    <!-- valida los input con require con true or false -->
+    <span>Valid</span>
+    <pre>{{ miFormulario.valid }}</pre>
 
-      <!-- valida los input con require con true or false -->
-      <span>Valid</span>
-      <pre>{{miFormulario.valid}}</pre>
+    <!-- valida que no se haya cambiado ningun valor original del los input -->
+    <span>Pristine</span>
+    <pre>{{ miFormulario.pristine }}</pre>
 
-      <!-- valida que no se haya cambiado ningun valor original del los input -->
-      <span>Pristine</span>
-      <pre>{{miFormulario.pristine}}</pre>
+    <!-- valida si el usuario a tocado el formulario -->
+    <span>Touched</span>
+    <pre>{{ miFormulario.touched }}</pre>
 
-      <!-- valida si el usuario a tocado el formulario -->
-      <span>Touched</span>
-      <pre>{{miFormulario.touched}}</pre>
+    <span>Value</span>
+    <pre>{{ miFormulario.value | json }}</pre>
 
-      <span>Value</span>
-      <pre>{{miFormulario.value | json}}</pre>
-
-      <span>CustomDirective</span>
-      <pre>{{CustomDirective() | json</pre>
-
-   </div>
+    <span>CustomDirective</span>
+    <pre>CustomDirective() | json</pre>
+  </div>
 </div>
